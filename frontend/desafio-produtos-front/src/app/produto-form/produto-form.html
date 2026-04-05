@@ -1,0 +1,48 @@
+<h2>{{ modoEdicao ? 'Editar produto' : 'Cadastrar produto' }}</h2>
+
+<p *ngIf="carregando">Carregando…</p>
+
+<form *ngIf="!carregando" (ngSubmit)="salvar()">
+  <label>
+    Nome *
+    <input name="nome" [(ngModel)]="model.nome" required />
+  </label>
+
+  <label>
+    Categoria *
+    <input name="categoria" [(ngModel)]="model.categoria" required />
+  </label>
+
+  <label>
+    Descrição
+    <textarea name="descricao" rows="3" [(ngModel)]="model.descricao"></textarea>
+  </label>
+
+  <label>
+    Preço *
+    <input name="preco" type="number" step="0.01" min="0" [(ngModel)]="model.preco" required />
+  </label>
+
+  <label>
+    Quantidade em estoque *
+    <input name="quantidadeEstoque" type="number" min="0" [(ngModel)]="model.quantidadeEstoque" required />
+  </label>
+
+  <label>
+    Código de barras
+    <input name="codigoBarras" [(ngModel)]="model.codigoBarras" />
+  </label>
+
+  <label class="checkbox">
+    <input name="ativo" type="checkbox" [(ngModel)]="model.ativo" />
+    Ativo
+  </label>
+
+  <div class="botoes">
+    <button type="submit" [disabled]="salvando">
+      {{ salvando ? 'Salvando…' : 'Salvar' }}
+    </button>
+    <button type="button" (click)="cancelar()" [disabled]="salvando">Cancelar</button>
+    <a routerLink="/produtos">Voltar à lista</a>
+  </div>
+</form>

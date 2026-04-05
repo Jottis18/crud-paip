@@ -1,0 +1,31 @@
+<h2>Lista de produtos</h2>
+
+<p *ngIf="carregando()">Carregando…</p>
+
+<div *ngIf="!carregando() && produtos().length === 0">
+  Nenhum produto cadastrado.
+</div>
+
+<table *ngIf="!carregando() && produtos().length > 0" class="tabela">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Categoria</th>
+      <th>Preço</th>
+      <th>Estoque</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of produtos()">
+      <td>{{ p.nome }}</td>
+      <td>{{ p.categoria }}</td>
+      <td>R$ {{ p.preco }}</td>
+      <td>{{ p.quantidadeEstoque }}</td>
+      <td class="acoes">
+        <a [routerLink]="['/produtos', p.id, 'editar']">Editar</a>
+        <button type="button" (click)="excluir(p)">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

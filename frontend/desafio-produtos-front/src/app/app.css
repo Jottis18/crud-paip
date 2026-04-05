@@ -1,0 +1,28 @@
+.topo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 1.25rem;
+}
+
+.topo h1 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.topo nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.topo a {
+  color: #1565c0;
+}
+
+.conteudo {
+  max-width: 800px;
+}
