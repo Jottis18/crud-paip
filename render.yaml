@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: crud-paip-api
+    runtime: java
+    rootDir: desafio-produtos
+    plan: free
+    buildCommand: ./mvnw clean package -DskipTests
+    startCommand: java -jar target/desafio-produtos-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: app.cors.allowed-origin
+        value: "*"

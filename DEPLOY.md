@@ -2,9 +2,12 @@
 
 ## 1) Deploy do backend na Render (Spring Boot)
 
+Opcao recomendada: na Render, use **Blueprint** apontando para o arquivo `render.yaml` na raiz do repo. Assim runtime e comandos ficam fixos como Java automaticamente.
+
 1. Acesse [Render](https://render.com/) e clique em **New +** > **Web Service**.
 2. Conecte seu GitHub e selecione o repositório `Jottis18/crud-paip`.
 3. Configure:
+   - **Environment/Runtime**: `Java` (nao Node)
    - **Root Directory**: `desafio-produtos`
    - **Runtime**: `Java`
    - **Build Command**: `./mvnw clean package -DskipTests`
